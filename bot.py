@@ -1,3 +1,6 @@
+# Don't Remove Credit
+# Subscribe YouTube Channel For Amazing Bot
+# Ask Doubt on telegram
 
 import sys, glob, importlib, logging, logging.config, pytz, asyncio
 from pathlib import Path
@@ -26,7 +29,7 @@ from datetime import date, datetime
 from aiohttp import web
 from plugins import web_server
 
-from .bot import TechVJBot
+from TechVJ.bot import TechVJBot
 from TechVJ.util.keepalive import ping_server
 from TechVJ.bot.clients import initialize_clients
 
@@ -51,7 +54,7 @@ async def start():
             load = importlib.util.module_from_spec(spec)
             spec.loader.exec_module(load)
             sys.modules["plugins." + plugin_name] = load
-            print("Tech VJ Imported => " + plugin_name)
+            print("Imported => " + plugin_name)
     if ON_HEROKU:
         asyncio.create_task(ping_server())
     b_users, b_chats = await db.get_banned()
@@ -80,5 +83,4 @@ if __name__ == '__main__':
     try:
         loop.run_until_complete(start())
     except KeyboardInterrupt:
-        logging.info('Service Stopped Bye 👋')
-
+        logging.info('Service Stopped Bye')
