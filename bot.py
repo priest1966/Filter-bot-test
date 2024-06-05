@@ -29,9 +29,9 @@ from datetime import date, datetime
 from aiohttp import web
 from plugins import web_server
 
-from TechVJ.bot import Bot
-from TechVJ.util.keepalive import ping_server
-from TechVJ.bot.clients import initialize_clients
+from Bot import Bot
+from util.keepalive import ping_server
+from Bot.clients import initialize_clients
 
 ppath = "plugins/*.py"
 files = glob.glob(ppath)
